@@ -596,6 +596,31 @@ cc_library(
 )
 
 cc_library(
+    name = "riscv_disassembler",
+    srcs = glob([
+        "lib/Target/RISCV/Disassembler/*.c",
+        "lib/Target/RISCV/Disassembler/*.cpp",
+        "lib/Target/RISCV/Disassembler/*.inc",
+    ]),
+    hdrs = glob([
+        "include/llvm/Target/RISCV/Disassembler/*.h",
+        "include/llvm/Target/RISCV/Disassembler/*.def",
+        "include/llvm/Target/RISCV/Disassembler/*.inc",
+        "lib/Target/RISCV/Disassembler/*.h",
+    ]),
+    copts = llvm_copts + ["-Iexternal/llvm/lib/Target/RISCV"],
+    deps = [
+        ":riscv_desc",
+        ":riscv_info",
+        ":riscv_utils",
+        ":config",
+        ":mc",
+        ":mc_disassembler",
+        ":support",
+    ],
+)
+
+cc_library(
     name = "aarch64_code_gen",
     srcs = glob([
         "lib/Target/AArch64/*.c",
