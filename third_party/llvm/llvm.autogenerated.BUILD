@@ -33,6 +33,7 @@ llvm_targets = [
     "NVPTX",
     "PowerPC",
     "X86",
+    "RISCV",
 ]
 
 llvm_target_asm_parsers = llvm_targets
