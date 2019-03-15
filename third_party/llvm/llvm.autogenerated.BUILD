@@ -358,6 +358,24 @@ llvm_target_list = [
             ("-gen-x86-EVEX2VEX-tables", "lib/Target/X86/X86GenEVEX2VEXTables.inc"),
         ],
     },
+    {
+        "name": "RISCV",
+        "lower_name": "riscv",
+        "short_name": "RISCV",
+        "tbl_outs": [
+            ("-gen-asm-matcher", "lib/Target/RISCV/RISCVGenAsmMatcher.inc"),
+            ("-gen-asm-writer", "lib/Target/RISCV/RISCVGenAsmWriter.inc"),
+            ("-gen-compress-inst-emitter", "lib/Target/RISCV/RISCVGenCompressInstEmitter.inc"),
+            ("-gen-dag-isel", "lib/Target/RISCV/RISCVGenDAGISel.inc"),
+            ("-gen-disassembler", "lib/Target/RISCV/RISCVGenDisassemblerTables.inc"),
+            ("-gen-instr-info", "lib/Target/RISCV/RISCVGenInstrInfo.inc"),
+            ("-gen-emitter", "lib/Target/RISCV/RISCVGenMCCodeEmitter.inc"),
+            ("-gen-pseudo-lowering", "lib/Target/RISCV/RISCVGenMCPseudoLowering.inc"),
+            ("-gen-register-info", "lib/Target/RISCV/RISCVGenRegisterInfo.inc"),
+            ("-gen-subtarget", "lib/Target/RISCV/RISCVGenSubtargetInfo.inc"),
+            ("-gen-searchable-tables", "lib/Target/RISCV/RISCVGenSystemOperands.inc"),
+        ],
+    },
 ]
 
 [
