@@ -146,6 +146,7 @@ cc_library(
         "//tensorflow/compiler/xla/service/llvm_ir:llvm_util",  # fixdeps: keep
         "//tensorflow/core:lib",  # fixdeps: keep
         "//tensorflow/core:stream_executor_no_cuda",
+        "@llvm//:riscv_code_gen",  # fixdeps: keep
         "@llvm//:aarch64_code_gen",  # fixdeps: keep
         "@llvm//:aarch64_disassembler",  # fixdeps: keep
         "@llvm//:arm_code_gen",  # fixdeps: keep

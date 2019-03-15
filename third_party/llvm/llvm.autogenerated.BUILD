@@ -465,6 +465,22 @@ cc_library(
 )
 
 cc_library(
+    name = "riscv_code_gen",
+    srcs = glob([
+        "lib/Target/RISCV/*.c",
+        "lib/Target/RISCV/*.cpp",
+        "lib/Target/RISCV/*.inc",
+    ]),
+    hdrs = glob([
+        "include/llvm/Target/RISCV/*.h",
+        "include/llvm/Target/RISCV/*.def",
+        "include/llvm/Target/RISCV/*.inc",
+        "lib/Target/RISCV/*.h",
+    ]),
+    copts = llvm_copts + ["-Iexternal/llvm/lib/Target/RISCV"],
+)
+
+cc_library(
     name = "aarch64_code_gen",
     srcs = glob([
         "lib/Target/AArch64/*.c",
