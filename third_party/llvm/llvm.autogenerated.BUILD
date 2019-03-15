@@ -510,6 +510,58 @@ cc_library(
 )
 
 cc_library(
+    name = "riscv_info",
+    srcs = glob([
+        "lib/Target/RISCV/TargetInfo/*.c",
+        "lib/Target/RISCV/TargetInfo/*.cpp",
+        "lib/Target/RISCV/TargetInfo/*.inc",
+        "lib/Target/RISCV/MCTargetDesc/*.h",
+    ]),
+    hdrs = glob([
+        "include/llvm/Target/RISCV/TargetInfo/*.h",
+        "include/llvm/Target/RISCV/TargetInfo/*.def",
+        "include/llvm/Target/RISCV/TargetInfo/*.inc",
+        "lib/Target/RISCV/*.def",
+        "lib/Target/RISCV/RISCV*.h",
+        "lib/Target/RISCV/TargetInfo/*.h",
+    ]),
+    copts = llvm_copts + ["-Iexternal/llvm/lib/Target/RISCV"],
+    deps = [
+        ":code_gen",
+        ":config",
+        ":support",
+        ":target",
+    ],
+)
+
+cc_library(
+    name = "riscv_desc",
+    srcs = glob([
+        "lib/Target/RISCV/MCTargetDesc/*.c",
+        "lib/Target/RISCV/MCTargetDesc/*.cpp",
+        "lib/Target/RISCV/MCTargetDesc/*.inc",
+    ]),
+    hdrs = glob([
+        "include/llvm/Target/RISCV/MCTargetDesc/*.h",
+        "include/llvm/Target/RISCV/MCTargetDesc/*.def",
+        "include/llvm/Target/RISCV/MCTargetDesc/*.inc",
+        "lib/Target/RISCV/MCTargetDesc/*.h",
+    ]),
+    copts = llvm_copts + ["-Iexternal/llvm/lib/Target/RISCV"],
+    deps = [
+        ":riscv_asm_printer",
+        ":riscv_info",
+        ":riscv_target_gen",
+        ":attributes_gen",
+        ":config",
+        ":intrinsic_enums_gen",
+        ":intrinsics_impl_gen",
+        ":mc",
+        ":support",
+    ],
+)
+
+cc_library(
     name = "riscv_code_gen",
     srcs = glob([
         "lib/Target/RISCV/*.c",
@@ -525,6 +577,7 @@ cc_library(
     copts = llvm_copts + ["-Iexternal/llvm/lib/Target/RISCV"],
     deps = [
         ":riscv_asm_printer",
+        ":riscv_desc",
     ],
 )
 
