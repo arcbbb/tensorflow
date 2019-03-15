@@ -578,6 +578,19 @@ cc_library(
     deps = [
         ":riscv_asm_printer",
         ":riscv_desc",
+        ":riscv_info",
+        ":riscv_utils",
+        ":analysis",
+        ":asm_printer",
+        ":code_gen",
+        ":config",
+        ":core",
+        ":global_i_sel",
+        ":mc",
+        ":scalar",
+        ":selection_dag",
+        ":support",
+        ":target",
     ],
 )
 

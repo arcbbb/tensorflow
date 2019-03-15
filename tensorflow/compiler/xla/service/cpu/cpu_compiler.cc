@@ -167,6 +167,11 @@ CpuCompiler::CpuCompiler() {
   LLVMInitializeAArch64TargetMC();
   LLVMInitializeAArch64AsmPrinter();
   LLVMInitializeAArch64Disassembler();
+  LLVMInitializeRISCVTarget();
+  LLVMInitializeRISCVTargetInfo();
+  LLVMInitializeRISCVTargetMC();
+  LLVMInitializeRISCVAsmPrinter();
+  LLVMInitializeRISCVDisassembler();
 }
 
 namespace {
